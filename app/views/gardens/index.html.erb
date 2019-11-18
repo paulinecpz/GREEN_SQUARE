@@ -1,0 +1,13 @@
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <% @gardens.each do |garden| %>
+      <h2><%= link_to garden.name, garden_path(garden) %></h2>
+      <p><%= garden.description %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= garden.price_per_day %></h2>
+    <% end %>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
