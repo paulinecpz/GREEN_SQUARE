@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.6.3'
 
 gem 'devise'
+gem 'faker'
 gem 'pundit'
 
 gem 'bootsnap', require: false
