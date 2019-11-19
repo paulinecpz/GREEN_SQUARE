@@ -4,7 +4,17 @@
     <div>
       <% @gardens.each do |garden| %>
       <h2><%= link_to garden.name, garden_path(garden) %></h2>
-      <p><%= garden.description %></p>
+      <p><%= garden.address %></p>
+      <p><%= garden.price_per_day %></p>
+
+      <p><%= link_to 'Show', garden %></p>
+        <% if policy(garden).edit? %>
+          <%= link_to 'Edit', edit_garden_path(garden) %>          
+        <% end %>
+        <% if policy(garden).destroy? %>
+          <%= link_to 'Destroy', garden, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      <p><%=link_to 'Rent my Garden', new_garden_path %></p>
     </div>
     <h2 class="card-trip-pricing"><%= garden.price_per_day %></h2>
     <% end %>
