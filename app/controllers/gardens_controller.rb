@@ -20,6 +20,7 @@ class GardensController < ApplicationController
       redirect_to garden_path(@garden)
     else
       render :new
+    end
   end
 
   def edit
