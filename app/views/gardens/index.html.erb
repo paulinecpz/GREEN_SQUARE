@@ -1,5 +1,6 @@
 
 <div class="container w-50">
+      <br>
   <% @gardens.each do |garden| %>
   <div class="card-trip">
     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
@@ -7,11 +8,12 @@
       <div>
         <h2><%= link_to garden.name, garden_path(garden), class: 'link-green' %></h2>
         <p><%= garden.address %></p>
-        <p><%= garden.price_per_day %>€</p>
+
     </div>
-      <h2 class="card-trip-pricing"><%= garden.price_per_day %>€</h2>
+      <h2 class="card-trip-pricing"><%= garden.price_per_day %>€ per day</h2>
       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
   </div>
+    <br>
   <% end %>
 </div>
