@@ -23,7 +23,7 @@ users= [user1, user2, user3, user4]
 puts("creating gardens")
 
   10.times do
-    Garden.create!(name: Faker::Name.two_word_name,
+    Garden.create!(name: Faker::Name.name,
       address: Faker::Address.city,
       description: Faker::Lorem.sentence,
       price_per_day: Faker::Number.within(range: 100..200),
