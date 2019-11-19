@@ -49,8 +49,5 @@ class GardensController < ApplicationController
 
   def garden_params
     params.require(:garden).permit(:name, :address, :description, :price_per_day, :user_id)
-    @garden.destroy
-
-    redirect_to gardens_path
   end
 end
