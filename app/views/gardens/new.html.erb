@@ -1,8 +1,17 @@
 <h1>Add my Garden</h1>
 
 <%= simple_form_for(@garden) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<% if @garden.errors.any? %>
+  <div class="errors-container">
+    <ul>
+      <% @garden.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+  <%# f.error_notification %>
+  <%# f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
     <%= f.input :name %>
@@ -22,3 +31,6 @@
   </div>
 <% end %>
 <%= link_to 'Back', gardens_path %>
+
+
+
