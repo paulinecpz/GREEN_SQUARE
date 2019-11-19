@@ -3,7 +3,7 @@ class GardensController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @garden = Garden.all
+    @gardens = Garden.all
   end
 
   def show
