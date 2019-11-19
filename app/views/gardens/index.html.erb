@@ -1,23 +1,23 @@
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <% @gardens.each do |garden| %>
-      <h2><%= link_to garden.name, garden_path(garden) %></h2>
-      <p><%= garden.address %></p>
-      <p><%= garden.price_per_day %></p>
-
-      <p><%= link_to 'Show', garden %></p>
+<div class="container w-50">
+  <% @gardens.each do |garden| %>
+  <div class="card-trip">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= link_to garden.name, garden_path(garden), class: 'link-green' %></h2>
+        <p><%= garden.address %></p>
+        <p><%= garden.price_per_day %>€</p>
         <% if policy(garden).edit? %>
-          <%= link_to 'Edit', edit_garden_path(garden) %>          
+        <%= link_to 'Edit', edit_garden_path(garden), class: 'link-green' %>
         <% end %>
         <% if policy(garden).destroy? %>
-          <%= link_to 'Destroy', garden, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Destroy', garden, method: :delete, data: { confirm: 'Are you sure?' }, class: 'link-green' %>
         <% end %>
-      <p><%=link_to 'Rent my Garden', new_garden_path %></p>
+        <p><%=link_to 'Rent my Garden', new_garden_path, class: 'link-green' %></p>
+      </div>
+      <h2 class="card-trip-pricing"><%= garden.price_per_day %>€</h2>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
-    <h2 class="card-trip-pricing"><%= garden.price_per_day %></h2>
-    <% end %>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
+  <% end %>
 </div>
