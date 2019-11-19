@@ -10,13 +10,7 @@
       <p><%= @garden.description %></p>
 
       <p><%= link_to 'Back', gardens_path, class: 'link-green' %></p>
-        <% if policy(@garden).edit? %>
-          <%= link_to 'Edit', edit_garden_path(@garden), class: 'link-green' %>
-        <% end %>
-        <% if policy(@garden).destroy? %>
-          <%= link_to 'Destroy', @garden, method: :delete, data: { confirm: 'Are you sure?' }, class: 'link-green' %>
-        <% end %>
-      <p><%=link_to 'Rent my Garden', new_garden_booking_path(@garden), class: 'link-green' %></p>
+
     </div>
     <h2 class="card-trip-pricing"><%= @garden.price_per_day %>€</h2>
 
