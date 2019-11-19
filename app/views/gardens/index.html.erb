@@ -1,22 +1,13 @@
+
 <div class="container w-50">
   <% @gardens.each do |garden| %>
   <div class="card-trip">
     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
     <div class="card-trip-infos">
       <div>
-        <% condition = garden.user_id == current_user.id %>
         <h2><%= link_to garden.name, garden_path(garden), class: 'link-green' %></h2>
         <p><%= garden.address %></p>
         <p><%= garden.price_per_day %>€</p>
-        <% if condition %>
-        <%= link_to 'Edit', edit_garden_path(garden), class: 'link-green' %>
-        <% end %>
-        <% if condition %>
-        <%= link_to 'Destroy', garden, method: :delete, data: { confirm: 'Are you sure?' }, class: 'link-green' %>
-        <% end %>
-        <% unless garden.user_id == current_user.id %>
-          <%=link_to 'Rent this Garden', new_garden_booking_path(garden.id), class: 'link-green' %>
-        <% end %>
     </div>
       <h2 class="card-trip-pricing"><%= garden.price_per_day %>€</h2>
       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
