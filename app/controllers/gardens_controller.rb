@@ -3,7 +3,7 @@ class GardensController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @gardens = Garden.all
+    @gardens = policy_scope(Garden).order(:name)
   end
 
   def show
@@ -11,13 +11,14 @@ class GardensController < ApplicationController
 
   def new
     @garden = Garden.new
+    authorize @garden
   end
 
   def create
     @garden = Garden.new(garden_params)
+    authorize @garden
     if @garden.save
-
-      redirect_to garden_path(@garden)
+      redirect_to garden_path(@garden), notice: 'Garden was successfully created'
     else
       render :new
     end
@@ -27,24 +28,25 @@ class GardensController < ApplicationController
   end
 
   def update
-   @garden.update(garden_params)
-
-   redirect_to garden_path(@garden)
+    @garden.update(garden_params)
+    redirect_to garden_path(@garden), notice: 'Garden was successfully updated'
   end
 
   def destroy
-    @garden.destroy
-
-    redirect_to gardens_path
+    if @garden.user == current_user || current_user.admin?
+      @garden.destroy
+      redirect_to gardens_path, notice: 'Garden was successfully destroyed'
+    end
   end
 
-private
+  private
 
   def set_garden
     @garden = Garden.find(params[:id])
+    authorize @garden
   end
 
   def garden_params
-    params.require(:garden).permit(:name, :address, :description, :price_per_day)
+    params.require(:garden).permit(:name, :address, :description, :price_per_day, :user_id)
   end
 end
