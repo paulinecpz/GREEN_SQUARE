@@ -1,6 +1,6 @@
-<h1>Add my Garden</h1>
+<h1>Change my Garden</h1>
 
-<%= simple_form_for(@garden) do |f| %>
+<%= simple_form_for(@garden, html: { method: :patch}) do |f| %>
 <% if @garden.errors.any? %>
   <div class="errors-container">
     <ul>
@@ -30,7 +30,7 @@
     <%= f.submit  "submit my garden", class: "btn btn-primary" %>
   </div>
 <% end %>
-<%= link_to 'Back', gardens_path %>
+<%= link_to 'Back', gardens_path(@garden) %>
 
 
 

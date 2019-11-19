@@ -16,6 +16,7 @@ class GardensController < ApplicationController
 
   def create
     @garden = Garden.new(garden_params)
+    @garden.user = current_user
     authorize @garden
     if @garden.save
       redirect_to garden_path(@garden), notice: 'Garden was successfully created'
@@ -28,8 +29,11 @@ class GardensController < ApplicationController
   end
 
   def update
-    @garden.update(garden_params)
-    redirect_to garden_path(@garden), notice: 'Garden was successfully updated'
+    if @garden.update(garden_params)
+      redirect_to garden_path(@garden), notice: 'Garden was successfully updated'
+    else
+      render :edit
+    end
   end
 
   def destroy
