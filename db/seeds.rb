@@ -13,22 +13,42 @@ Garden.destroy_all
 User.destroy_all
 
 
-user1 = User.create(name: "Paulo", email:"paulo@paulo.com", password:"password")
-user2 = User.create(name: "Pauline", email:"pauline@pauline.com", password:"password")
-user3 = User.create(name: "Mathieu", email:"mathieu@mathieu.com", password:"password")
-user4 = User.create(name: "Eduardo", email:"edu@edu.com", password:"password")
+# user1 = User.create(name: "Paulo", email:"paulo@paulo.com", password:"password", admin: true)
+# user2 = User.create(name: "Pauline", email:"pauline@pauline.com", password:"password", admin: true)
+# user3 = User.create(name: "Mathieu", email:"mathieu@mathieu.com", password:"password", admin: true)
+# user4 = User.create(name: "Eduardo", email:"edu@edu.com", password:"password", admin: true)
 
 
-users= [user1, user2, user3, user4]
-puts("creating gardens")
+# users= [user1, user2, user3, user4]
+puts("creating gardens and users")
 
-  10.times do
-    Garden.create!(name: Faker::Name.name,
+USERS = []
+15.times do
+    USERS << User.create!(
+      email: Faker::Internet.email,
+      name: Faker::Name.name,
+      password: "password",
+      avatar: Faker::Avatar.image("my-own-slug"),
+      admin: false
+      )
+  end
+  ids = []
+  User.all.each { |user| ids << user.id  }
+
+  images = ["1.jpg","2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "12.jpg", "13.jpg", "15.jpg", "16.jpg", "18.jpg", "19.jpg","20.jpg", "21.jpg", "22.jpg" ] 
+
+  20.times do
+    Garden.create!(name: Faker::Cannabis.buzzword,
       address: Faker::Address.city,
-      description: Faker::Lorem.sentence,
-      price_per_day: Faker::Number.within(range: 100..200),
-      user: users.sample
+      description: Faker::Lorem.paragraph,
+      price_per_day: Faker::Number.within(range: 5..20),
+      photo: images.sample,
+      user_id: ids.sample
       )
   end
 
-puts("gardens finished")
+
+
+
+
+puts("seed finished")
