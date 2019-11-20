@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   skip_after_action :verify_authorized
 
   def home
+    @gardens = Garden.all
   end
 end
