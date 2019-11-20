@@ -4,19 +4,25 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def new
     @garden = Garden.find(params[:garden_id])
     @booking = Booking.new
+    @booking.garden = @garden
     authorize @booking
   end
 
   def create
+    @garden = Garden.find(params[:garden_id])
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.garden = @garden
     authorize @booking
     if @booking.save
-      redirect_to new_garden_booking_path(@booking.id), notice: 'Booking successfully created'
+      redirect_to garden_booking_path(@garden, @booking), notice: 'Booking successfully created'
     else
       render :new
     end
