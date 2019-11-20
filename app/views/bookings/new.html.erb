@@ -1,83 +1,17 @@
+<div class="container">
 
-<!-- Sidebar/menu -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-  <nav class="w3-sidebar w3-light-green w3-collapse w3-top" style="z-index:2;width:260px" id="mySidebar">
-  <div class="w3-container w3-display-container w3-padding-16">
-    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-transparent w3-display-topright"></i>
-    <h3>Rental</h3>
-    <h3>from 99€</h3>
-    <h6>per day</h6>
-    <hr>
-    <form action="/action_page.php" target="_blank">
-      <p><label><i class="fa fa-calendar-check-o"></i> Check In</label></p>
-      <input class="w3-input w3-border" type="text" placeholder="DD MM YYYY" name="CheckIn" required>
-      <p><label><i class="fa fa-calendar-o"></i> Check Out</label></p>
-      <input class="w3-input w3-border" type="text" placeholder="DD MM YYYY" name="CheckOut" required>
-      <p><button class="w3-button w3-block w3-blue w3-left-align" type="submit"><i class="fa fa-search w3-margin-right"></i> Search availability</button></p>
-    </form>
-  </div>
-  <div class="w3-bar-block">
-    <a href="#apartment" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-building"></i> Garden</a>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-16" onclick="document.getElementById('subscribe').style.display='block'"><i class="fa fa-rss"></i> Subscribe</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-envelope"></i> Contact</a>
-  </div>
-</nav>
-<div class="w3-main w3-white" style="margin-left:260px">
-<!-- Slideshow Header -->
-  <div class="w3-container" id="garden">
-    <h2 class="w3-text-green">The Garden</h2>
-    <div class="w3-display-container mySlides">
-    <img src="https://oldworldgardenfarms.com/wp-content/uploads/2017/06/weed-free-garden-2.jpg" style="width:100%;margin-bottom:-20px">
-      <div class="w3-display-bottomleft w3-container w3-black">
-        <p>Garden</p>
-      </div>
-    </div>
-    <div class="w3-row-padding w3-section">
-    <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="https://oldworldgardenfarms.com/wp-content/uploads/2017/06/weed-free-garden-2.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)" title="Garden">
-    </div>
-    </div>
-    <div>
-    <hr>
-    </div>
-     <div class="w3-container">
-    <h4><strong>The space</strong></h4>
-    <div class="w3-row w3-large">
-      <div class="w3-col s6">
-        <p><i class="material-icons">border_style</i> M² :  30</p>
-        <p><i class="material-icons">brightness_low</i> Sun : Good sun exposure</p>
-        <p><i class="material-icons">terrain</i> Terrain : Soft and low stone terrain</p>
-        </div>
-      </div>
-        <div>
-          <hr>
-        </div>
-    <h4><strong>Description</strong></h4>
-    <p>Our garden is really clean and we like to keep it that way. You can only grow cannabis on this garden, if you try something else you will be expeled sooner.</p>
-    <p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
-    <hr>
+<h1>Book this Garden</h1>
 
-    <div class="w3-container" id="contact">
-    <h2>Contact</h2>
-    <i class="fa fa-map-marker" style="width:30px"></i> Mirandela, PT<br>
-    <i class="fa fa-phone" style="width:30px"></i> Phone: +351 914445551<br>
-    <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
-    <p>Questions? Go ahead, ask them:</p>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-    <button type="submit" class="w3-button w3-blue w3-third">Send a Message</button>
-    </form>
+<%= simple_form_for([@garden, @booking], html: {method: :post}) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :start_date, as: :date %>
   </div>
+  <div class="form-inputs">
+    <%= f.input :end_date, as: :date %>
   </div>
+
+  <div class="form-actions">
+    <%= f.submit  "submit my garden", class: "btn btn-success" %>
+  </div>
+<% end %>
 </div>
-</div>
-
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main w3-white" style="margin-left:260px">
-
-
-  <h4><strong>Extra Info</strong></h4>
-    <p>Our apartment is really clean and we like to keep it that way. Enjoy the lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
