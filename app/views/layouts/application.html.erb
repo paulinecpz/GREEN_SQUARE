@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title>Welcome to GreenSpace</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -12,8 +12,8 @@
   <body>
     <!-- navbar -->
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <%= link_to gardens_path, class: "navbar-brand d-flex flex-row" do %>
-      <%= image_tag "https://cdn.mos.cms.futurecdn.net/05ea615f11e300b074e248aa7378ff64.jpg" %><h4>GreenSquare</h4>
+      <%= link_to root_path, class: "navbar-brand d-flex flex-row" do %>
+      <%= image_tag "https://cdn.mos.cms.futurecdn.net/05ea615f11e300b074e248aa7378ff64.jpg" %><h4>GreenSpace</h4>
       <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,7 +21,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <%= link_to "Home", gardens_path, class: "nav-link" %>
+              <input class="form-control rounded" type="search" placeholder="Search" aria-label="Search">
+            </li>
+            <li class="nav-item">
+              <%= link_to "Search", gardens_path, class: "nav-link link-green" %>
+            </li>
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Create Garden", new_garden_path, class: "nav-link" %>
@@ -30,7 +36,7 @@
           <% if current_user.nil? %>
           <li class="nav-item">
             <%=link_to 'Log in', user_session_path, class: 'nav-link' %>
-            </li>
+          </li>
           <% else%>
           <li class="nav-item dropdown">
             <%= image_tag "https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -38,27 +44,27 @@
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
             </div>
-            </li>
-            <% end %>
-          </ul>
-        </div>
+          </li>
+          <% end %>
+        </ul>
       </div>
-      <!-- content -->
-      <%= yield %>
-      <!-- footer -->
-      <div class="footer">
-        <div class="footer-links">
-          <a href="#"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
-        <div class="footer-copyright">
-          GreenSquare made with love <i class="fas fa-heart"></i> in Lisboa
-        </div>
+    </div>
+    <!-- content -->
+    <%= yield %>
+    <!-- footer -->
+    <div class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
       </div>
-      <%= javascript_include_tag 'application' %>
-      <%= javascript_pack_tag 'application' %>
-    </body>
-  </html>
+      <div class="footer-copyright">
+        GreenSquare made with love <i class="fas fa-heart"></i> in Lisboa
+      </div>
+    </div>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+  </body>
+</html>
