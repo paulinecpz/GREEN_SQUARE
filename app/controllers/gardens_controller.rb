@@ -37,10 +37,8 @@ class GardensController < ApplicationController
   end
 
   def destroy
-    if @garden.user == current_user || current_user.admin?
-      @garden.destroy
-      redirect_to gardens_path, notice: 'Garden was successfully destroyed'
-    end
+    @garden.destroy
+    redirect_to user_gardens_path, notice: 'Garden was successfully destroyed'
   end
 
   private
