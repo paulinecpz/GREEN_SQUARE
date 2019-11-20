@@ -1,0 +1,30 @@
+
+<div class="container w-50">
+  <br>
+  <% @gardens.each do |garden| %>
+  <div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= garden.name%></h2>
+      <p><%= garden.address %></p>
+      <p><%= garden.price_per_day %>€ per day</p>
+      <p><%= garden.description %></p>
+    </div>
+    <div>
+      <%= link_to 'Edit', edit_garden_path(garden), class: "btn btn-outline-success" %>
+      <%= link_to 'Delete', garden_path(garden), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-success"  %>
+    </div>
+  </div>
+</div>
+</br>
+<%end%>
+<!-- || @garden.user_id != current_user.id  %> -->
+
+<% if @garden.nil?%>
+<p>You have no gardens</p>
+        <%=link_to 'Home Page', root_path, class: 'btn btn-outline-success' %>
+      <% else%>
+        <%= link_to 'Back', gardens_path, class: "btn btn-outline-success" %>
+      <% end %>
+</div>

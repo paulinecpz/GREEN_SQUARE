@@ -11,7 +11,7 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    scope.where(id: record.id).exists?
   end
 
   def create?
@@ -40,6 +40,7 @@ class ApplicationPolicy
     def initialize(user, scope)
       @user = user
       @scope = scope
+    endscope = scope
     end
 
     def resolve
