@@ -1,9 +1,16 @@
 class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:show, :index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @gardens = policy_scope(Garden).order(:name)
+    # @gardens = policy_scope(Garden).order(:name)
+    if params[:query].present?
+      condition = "address @@ :query OR name @@ :query"
+      @gardens = policy_scope(Garden).where(condition, query: "%#{params[:query]}%")
+    else
+      @gardens = policy_scope(Garden).order(:name)
+    end
+    # @gardens = Garden.search_by_address_and_name(params[:query])
   end
 
   def show
