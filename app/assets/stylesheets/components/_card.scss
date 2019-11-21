@@ -1,7 +1,17 @@
+//  .container {
+//   display: flex;
+// }
+
+.container{
+  z-index: -1;
+}
  .card-trip {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+
 }
 
 .card-trip > img {

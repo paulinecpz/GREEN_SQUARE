@@ -9,7 +9,9 @@ class GardensController < ApplicationController
     @markers = @gardens.map do |garden|
       {
         lat: garden.latitude,
-        lng: garden.longitude
+        lng: garden.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { garden: garden })
+        # image_url: helpers.asset_url('https://cdn.mos.cms.futurecdn.net/05ea615f11e300b074e248aa7378ff64.jpg')
       }
     end
     # @gardens = policy_scope(Garden).order(:name)
