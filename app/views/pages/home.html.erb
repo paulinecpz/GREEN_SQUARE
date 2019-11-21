@@ -11,14 +11,14 @@
         <img src="https://images.unsplash.com/photo-1562602876-46e4309c7310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80" class="d-block w-100" alt="photo-cannabis">
         <div class="carousel-caption d-none d-md-block">
           <div class="container w-50">
-          <%= form_tag gardens_path, method: :get do %>
+            <%= form_tag gardens_path, method: :get do %>
             <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find a garden"
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a garden"
             %>
             <%= submit_tag "Search", class: "btn btn-success" %>
-          <% end %>
+            <% end %>
           </div>
           <br>
           <h5>GreenSpace</h5>
@@ -29,14 +29,14 @@
         <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="photo-of-garden">
         <div class="carousel-caption d-none d-md-block">
           <div class="container w-50">
-          <%= form_tag gardens_path, method: :get do %>
+            <%= form_tag gardens_path, method: :get do %>
             <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find a garden"
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a garden"
             %>
             <%= submit_tag "Search", class: "btn btn-success" %>
-          <% end %>
+            <% end %>
           </div>
           <br>
           <h5>Rent your spot</h5>
@@ -47,14 +47,14 @@
         <img src="https://images.unsplash.com/photo-1533577059201-70fbca82b2a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="photo-smokers-weed">
         <div class="carousel-caption d-none d-md-block">
           <div class="container w-50">
-          <%= form_tag gardens_path, method: :get do %>
+            <%= form_tag gardens_path, method: :get do %>
             <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find a garden"
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a garden"
             %>
             <%= submit_tag "Search", class: "btn btn-success" %>
-          <% end %>
+            <% end %>
           </div>
           <br>
           <h5>Join a community</h5>
@@ -72,8 +72,6 @@
     </a>
   </div>
 </div>
-
-
 <!-- Gardens cards -->
 <div class="container w-50">
   <br>
@@ -83,20 +81,21 @@
     <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
     <% else %><%= image_tag garden.photo %>
     <% end %>
-<!--     <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" /> -->
+    <!--     <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" /> -->
     <div class="card-trip-infos">
       <div>
         <h2><%= link_to garden.name.capitalize, garden_path(garden), class: 'link-green' %></h2>
         <p><%= garden.address %></p>
-
-    </div>
+      </div>
       <h2 class="card-trip-pricing"><%= garden.price_per_day %>€ per day</h2>
-
+      <% if garden.user.avatar.nil? %>
+      <%= image_tag "https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg", class: "card-trip-user avatar-bordered" %>
+      <% else %>
       <%=image_tag(garden.user.avatar, class: "card-trip-user avatar-bordered")%>
-<!--       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
+      <% end %>
+      <!--       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
     </div>
   </div>
   <br>
   <% end %>
 </div>
-
