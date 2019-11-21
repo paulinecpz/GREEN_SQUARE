@@ -16,6 +16,9 @@ class BookingsController < ApplicationController
   end
 
   def create
+    # params[:dates_range] tem string do tipo
+    # fazer parse da string de forma a ter as duas datas em objectos separados
+    # assing as start_date and and_date do booking
     @garden = Garden.find(params[:garden_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
