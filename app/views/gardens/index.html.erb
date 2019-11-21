@@ -2,12 +2,12 @@
 <div class="container w-50 mt-3">
   <!-- Search -->
   <%= form_tag gardens_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a garden"
-    %>
-    <%= submit_tag "Search", class: "btn btn-success" %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control",
+  placeholder: "Find a garden"
+  %>
+  <%= submit_tag "Search", class: "btn btn-success" %>
   <% end %>
   <br>
   <% @gardens.each do |garden| %>
@@ -20,12 +20,13 @@
       <div>
         <h2><%= link_to garden.name.capitalize, garden_path(garden), class: 'link-green' %></h2>
         <p><%= garden.address %></p>
-
-    </div>
+      </div>
       <h2 class="card-trip-pricing"><%= garden.price_per_day %>€ per day</h2>
-
+      <% if garden.user.avatar.nil? %>
+      <%= image_tag "https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg", class: "card-trip-user avatar-bordered" %>
+      <% else %>
       <%=image_tag(garden.user.avatar, class: "card-trip-user avatar-bordered")%>
-<!--       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
+      <% end %><!--       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
     </div>
   </div>
   <br>
