@@ -13,10 +13,10 @@ Garden.destroy_all
 User.destroy_all
 
 
-# user1 = User.create(name: "Paulo", email:"paulo@paulo.com", password:"password", admin: true)
-# user2 = User.create(name: "Pauline", email:"pauline@pauline.com", password:"password", admin: true)
-# user3 = User.create(name: "Mathieu", email:"mathieu@mathieu.com", password:"password", admin: true)
-# user4 = User.create(name: "Eduardo", email:"edu@edu.com", password:"password", admin: true)
+User.create(name: "Paulo", email:"paulo@paulo.com", password:"password", admin: true)
+User.create(name: "Pauline", email:"pauline@pauline.com", password:"password", admin: true)
+User.create(name: "Mathieu", email:"mathieu@mathieu.com", password:"password", admin: true)
+User.create(name: "Eduardo", email:"edu@edu.com", password:"password", admin: true)
 
 
 # users= [user1, user2, user3, user4]

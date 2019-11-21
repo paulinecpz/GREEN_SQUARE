@@ -5,6 +5,7 @@ gem 'pg_search', '~> 2.3.0'
 gem 'devise'
 gem 'faker'
 gem 'pundit'
+gem 'geocoder'
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'

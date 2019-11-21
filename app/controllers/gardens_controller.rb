@@ -3,6 +3,14 @@ class GardensController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @gardens = policy_scope(Garden).order(:name)
+    @gardens = Garden.geocoded 
+
+    @markers = @gardens.map do |garden|
+      {
+        lat: garden.latitude,
+        lng: garden.longitude
+      }
     # @gardens = policy_scope(Garden).order(:name)
     if params[:query].present?
       condition = "address @@ :query OR name @@ :query"
