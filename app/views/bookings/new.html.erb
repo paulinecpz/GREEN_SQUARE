@@ -1,19 +1,57 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 
+<div class="sidenav">
+  <h3>Rental</h3>
+    <h3>from 99€</h3>
+    <h6>per day</h6>
+    <hr>
+  <%= simple_form_for [@garden, @booking] do |f| %>
+    <h1 href="#">Checkin:</h1><br>
+    <%= text_field_tag :dates_range, '', label: 'check in dates' %><br>
 
-
-<%= simple_form_for([@garden, @booking]) do |f| %>
-<%=cl_image_tag(@booking.garden.photo)%>
-  <div class="form-inputs">
-    <%= f.input :start_date, as: :date %>
-  </div>
-  <div class="form-inputs">
-    <%= f.input :end_date, as: :date %>
-  </div>
-
-
+    <%= f.submit %>
+  <% end %>
+</div>
 
 <div class="main">
-  <h2 href="#"> The Garden</h2>
-    <%= cl_image_tag(@booking.garden.photo) %>
-    <p>Brief Description</p>
+  <h2>The Garden</h2>
+    <img src="https://d3atagt0rnqk7k.cloudfront.net/wp-content/uploads/2017/10/18132546/how-to-support-your-cannabis-garden-with-trellising.jpg" style="width:500px;height:400px;"><br>
+  <div class="w3-container">
+    <h4><strong>The space</strong></h4>
+    <div class="w3-row w3-large">
+      <div class="w3-col s6">
+        <p><i class="material-icons">border_style</i> M² :  30</p>
+        <p><i class="material-icons">brightness_low</i> Sun : Good sun exposure</p>
+        <p><i class="material-icons">terrain</i> Terrain : Soft and low stone terrain</p>
+        </div>
+      </div>
+        <div>
+          <hr>
+        </div>
+    <h4><strong>Description</strong></h4>
+    <p>Our garden is really clean and we like to keep it that way. You can only grow cannabis on this garden, if you try something else you will be expeled sooner.</p>
+    <p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
+    <hr>
+    <div class="w3-container" id="contact">
+    <h2>Contact</h2>
+    <i class="fa fa-map-marker" style="width:30px"></i> Mirandela, PT<br>
+    <i class="fa fa-phone" style="width:30px"></i> Phone: +351 914445551<br>
+    <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+    <p>Questions? Go ahead, ask them:</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+    <button type="submit" class="w3-button w3-blue w3-third">Send a Message</button>
+    </form><br>
   </div>
+  <h4><strong>Extra Info</strong></h4>
+    <p>Our apartment is really clean and we like to keep it that way. Enjoy the lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+  </div>
+</div>
+
+
+
+
