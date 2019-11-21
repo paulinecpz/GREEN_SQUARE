@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => :registrations }
   root to: 'pages#home'
 
   resources :gardens do
@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   patch 'gardens/:id', to: 'gardens#update', as: :gardens_update
 
   namespace :user do
-    resources :gardens, only: [:index, :destroy]
+    resources :gardens, only: [:index, :destroy, :edit]
   end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
