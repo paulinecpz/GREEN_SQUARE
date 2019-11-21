@@ -1,5 +1,13 @@
+    <div
+    id="map"
+    style="width: 100%;
+    height: 300px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 <!-- Gardens cards -->
 <div class="container w-50 mt-3">
+
   <!-- Search -->
   <%= form_tag gardens_path, method: :get do %>
   <%= text_field_tag :query,
