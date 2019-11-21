@@ -8,4 +8,11 @@ class Garden < ApplicationRecord
   validates :description, presence: true
   validates :price_per_day, presence: true, numericality: { only_integer: true }
   # mount_uploader :photo, PhotoUploader
+
+  # include PgSearch::Model
+  # pg_search_scope :search_by_address_and_name,
+  #   against: [:address, :name],
+  #   using: {
+  #     tsearch: { prefix: true }
+  #   }
 end
