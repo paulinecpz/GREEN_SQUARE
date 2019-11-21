@@ -1,19 +1,15 @@
+<div class="container">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <h2>Flatpickr Demo</h2>
 
-
-
-<%= simple_form_for([@garden, @booking]) do |f| %>
-<%=cl_image_tag(@booking.garden.photo)%>
-  <div class="form-inputs">
-    <%= f.input :start_date, as: :date %>
+    <%= simple_form_for([@garden, @booking], html: { method: :get}) do |f| %>
+      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Go", class: "btn btn-primary" %>
+    <% end %>
   </div>
-  <div class="form-inputs">
-    <%= f.input :end_date, as: :date %>
-  </div>
+</div>
 
 
 
-<div class="main">
-  <h2 href="#"> The Garden</h2>
-    <%= cl_image_tag(@booking.garden.photo) %>
-    <p>Brief Description</p>
-  </div>
+
