@@ -1,14 +1,16 @@
 
 
 
-<div class="sidenav">
-  <%= simple_form_for [@garden, @booking] do |f| %>
-    <h1 href="#">Checkin - Checkout:</h1><br>
-    <%= text_field_tag :dates_range, '', label: 'check in dates' %><br>
+<%= simple_form_for([@garden, @booking]) do |f| %>
+<%=cl_image_tag(@booking.garden.photo)%>
+  <div class="form-inputs">
+    <%= f.input :start_date, as: :date %>
+  </div>
+  <div class="form-inputs">
+    <%= f.input :end_date, as: :date %>
+  </div>
 
-    <%= f.submit %>
-  <% end %>
-</div>
+
 
 <div class="main">
   <h2 href="#"> The Garden</h2>
