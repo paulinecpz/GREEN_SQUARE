@@ -1,11 +1,11 @@
 <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
   <div class="row panel">
-    <div class="col-md-4">
+    <div class="col-lg-4 col-md-4">
 
-      <% if current_user.avatar.nil? %>
-      <%= image_tag "https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg", class: "card-trip-user avatar-bordered" %>
+      <% if current_user.avatar_url.blank? %>
+        <img src="https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg" class="card-trip-user" />
       <% else %>
-      <%= cl_image_tag(current_user.avatar)%>
+        <%= cl_image_tag(current_user.avatar)%>
       <% end %>
     </div>
       <div class="col-md-8">
@@ -26,28 +26,10 @@
 <div class = "container mt-4">
   <h1>My Gardens</h1>
 <% @gardens.each do |garden| %>
-<div class="card-trip mt-4">
-    <% if garden.photo.nil? %>
-    <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
-    <% else %><%= cl_image_tag garden.photo %>
-    <% end %>
-    <div class="card-trip-infos">
-      <div>
-        <h2><%= link_to garden.name.capitalize, garden_path(garden), class: 'link-green' %></h2>
-        <p><%= garden.address %></p>
-      </div>
-      <h2 class="card-trip-pricing"><%= garden.price_per_day %>€ per day</h2>
-      <% if garden.user.avatar.nil? %>
-      <%= image_tag "https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg", class: "card-trip-user avatar-bordered" %>
-      <% else %>
-      <%=image_tag(garden.user.avatar, class: "card-trip-user avatar-bordered")%>
-      <% end %><!--       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
-    </div>
-  </div>
+  <%= render "gardens/garden", garden: garden %>
 
-
-<%= link_to 'Edit', edit_garden_path(garden), class: "btn btn-outline-success" %>
-<%= link_to 'Delete', garden_path(garden), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-success"  %>
+  <%= link_to 'Edit', edit_garden_path(garden), class: "btn btn-outline-success" %>
+  <%= link_to 'Delete', garden_path(garden), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-success"  %>
 <%end%>
 <div>
 <% if @gardens.nil?%>
