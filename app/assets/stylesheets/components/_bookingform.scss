@@ -1,33 +1,24 @@
-.w3-padding-16 {
-    padding-top: 16px!important;
-    padding-bottom: 16px!important;
+.sidenav {
+  height: auto; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 0; /* Stay on top */
+  top: 20; /* Stay at the top */
+  left: 1;
+  background-color: #eee; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
 }
 
-.w3-container, .w3-panel {
-    padding: 0.01em 16px;
+.main {
+  margin-left: 300px;
+  padding: 0px 10px;
 }
 
-.w3-border-left {
-    border-left: 1px solid #ccc!important;
+.sidenav h1 {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
 }
-.w3-content {
-    max-width: 980px;
-}
-.w3-content, .w3-auto {
-    margin-left: auto;
-    margin-right: auto;
-}
-.w3-border-right {
-    border-right: 1px solid #ccc!important;
-}
-.w3-border-left {
-    border-left: 1px solid #ccc!important;
-}
-.w3-content {
-    max-width: 980px;
-}
-.w3-content, .w3-auto {
-    margin-left: auto;
-    margin-right: auto;
-}
-

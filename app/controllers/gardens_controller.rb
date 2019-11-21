@@ -37,7 +37,7 @@ class GardensController < ApplicationController
     @garden.user = current_user
     authorize @garden
     if @garden.save
-      redirect_to garden_path(@garden), notice: 'Garden was successfully created'
+      redirect_to user_gardens_path, notice: 'Garden was successfully created'
     else
       render :new
     end
@@ -67,6 +67,6 @@ class GardensController < ApplicationController
   end
 
   def garden_params
-    params.require(:garden).permit(:name, :address, :description, :price_per_day, :user_id)
+    params.require(:garden).permit(:name, :address, :description, :photo, :price_per_day, :user_id)
   end
 end
