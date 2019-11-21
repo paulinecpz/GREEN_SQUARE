@@ -1,1 +1,0 @@
-CLOUDINARY_URL=cloudinary://633265473383567:CpopucC015_VubcDD6zSwKiiGnU@paulinecpz
