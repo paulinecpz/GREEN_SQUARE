@@ -3,9 +3,9 @@
     <div class="col-lg-4 col-md-4">
 
       <% if current_user.avatar_url.blank? %>
-        <img src="https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg" class="card-trip-user" />
+        <img src="https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg" class="avatar-bordered avatar-profile" />
       <% else %>
-        <%= cl_image_tag(current_user.avatar)%>
+        <%= cl_image_tag(current_user.avatar) %>
       <% end %>
     </div>
       <div class="col-md-8">
