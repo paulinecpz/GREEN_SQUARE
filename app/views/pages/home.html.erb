@@ -10,6 +10,17 @@
       <div class="carousel-item active">
         <img src="https://images.unsplash.com/photo-1562602876-46e4309c7310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80" class="d-block w-100" alt="photo-cannabis">
         <div class="carousel-caption d-none d-md-block">
+          <div class="container w-50">
+          <%= form_tag gardens_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a garden"
+            %>
+            <%= submit_tag "Search", class: "btn btn-success" %>
+          <% end %>
+          </div>
+          <br>
           <h5>GreenSpace</h5>
           <p>An app to help you grow your own cannabis</p>
         </div>
@@ -17,6 +28,17 @@
       <div class="carousel-item">
         <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="photo-of-garden">
         <div class="carousel-caption d-none d-md-block">
+          <div class="container w-50">
+          <%= form_tag gardens_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a garden"
+            %>
+            <%= submit_tag "Search", class: "btn btn-success" %>
+          <% end %>
+          </div>
+          <br>
           <h5>Rent your spot</h5>
           <p>and get help from experts</p>
         </div>
@@ -24,6 +46,17 @@
       <div class="carousel-item">
         <img src="https://images.unsplash.com/photo-1533577059201-70fbca82b2a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="photo-smokers-weed">
         <div class="carousel-caption d-none d-md-block">
+          <div class="container w-50">
+          <%= form_tag gardens_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a garden"
+            %>
+            <%= submit_tag "Search", class: "btn btn-success" %>
+          <% end %>
+          </div>
+          <br>
           <h5>Join a community</h5>
           <p>Be part of the organic cannabis growers</p>
         </div>
