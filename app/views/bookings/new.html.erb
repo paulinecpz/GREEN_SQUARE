@@ -1,27 +1,17 @@
-<!-- <div class="container">
 
-<h1>Book this Garden</h1>
-
-<%= simple_form_for([@garden, @booking], html: {method: :post}) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :start_date, as: :date %>
-  </div>
-  <div class="form-inputs">
-    <%= f.input :end_date, as: :date %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.submit  "submit my garden", class: "btn btn-success" %>
-  </div>
-<% end %>
-</div> -->
 
 
 <div class="sidenav">
   <%= simple_form_for [@garden, @booking] do |f| %>
-    <h1 href="#">Checkin:</h1><br>
+    <h1 href="#">Checkin - Checkout:</h1><br>
     <%= text_field_tag :dates_range, '', label: 'check in dates' %><br>
 
     <%= f.submit %>
   <% end %>
 </div>
+
+<div class="main">
+  <h2 href="#"> The Garden</h2>
+    <%= cl_image_tag(@booking.garden.photo) %>
+    <p>Brief Description</p>
+  </div>
