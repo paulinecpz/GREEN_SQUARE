@@ -35,7 +35,7 @@ class GardensController < ApplicationController
     @garden.user = current_user
     authorize @garden
     if @garden.save
-      redirect_to garden_path(@garden), notice: 'Garden was successfully created'
+      redirect_to user_gardens_path, notice: 'Garden was successfully created'
     else
       render :new
     end
