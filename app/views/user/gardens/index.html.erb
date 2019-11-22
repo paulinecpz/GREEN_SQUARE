@@ -1,44 +1,63 @@
-<div class="main-container">
-<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
-  <div class="row panel">
-    <div class="col-lg-4 col-md-4">
+<div class="container ">
+  <div class="row">
+    <div class="col-4">
+      <div class="user-details">
 
-      <% if current_user.avatar_url.blank? %>
-        <img src="https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg" class="avatar-bordered avatar-profile" />
-      <% else %>
-        <%= cl_image_tag(current_user.avatar) %>
-      <% end %>
+            <% if current_user.avatar_url.blank? %>
+              <img src="https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg" class="avatar-bordered avatar-profile" />
+            <% else %>
+              <%= cl_image_tag(current_user.avatar) %>
+            <% end %>
+              <h3>My Profile</h3>
+              <div class="header">
+                <h6> USER NAME : </h6>
+                <p><%= current_user.name %></p>
+                <h6>USER EMAIL :</h6>
+                <p><%= current_user.email%></p>
+                <h6>USER DESCRIPTION :</h6>
+                <p><%= current_user.description %></p>
+              </div>
+        <%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-outline-success" %>
+      </div>
     </div>
-      <div class="col-md-8">
-        <h1>My Profile</h1>
-        <div class="header">
-          <h4> USER NAME : </h4>
-          <p><%= current_user.name %></p>
-          <h4>USER EMAIL :</h4>
-          <p><%= current_user.email%></p>
-          <h4>USER DESCRIPTION :</h4>
-          <p><%= current_user.description %></p>
-        </div>
+
+
+    <div class="col-8">
+     <div>
+      <h1>My Gardens</h1>
+      <% @gardens.each do |garden| %>
+        <%= render "gardens/garden", garden: garden %>
+
+        <%= link_to 'Edit', edit_garden_path(garden), class: "btn btn-outline-success" %>
+        <%= link_to 'Delete', garden_path(garden), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-success"  %>
+      <%end%>
+      <div>
+        <% if @gardens.nil?%>
+          <p>You have no gardens</p>
+          <%=link_to 'Home Page', root_path, class: 'btn btn-outline-success' %>
+        <% else%>
+          <%= link_to 'Back', gardens_path, class: "btn btn-outline-success" %>
+        <% end %>
+      </div>
+     </div>
+     <div>
+      <h1>My Bookings</h1>
+      <% @gardens.each do |garden| %>
+        <%= render "gardens/garden", garden: garden %>
+
+        <%= link_to 'Edit', edit_garden_path(garden), class: "btn btn-outline-success" %>
+        <%= link_to 'Delete', garden_path(garden), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-success"  %>
+      <%end%>
+      <div>
+        <% if @gardens.nil?%>
+          <p>You have no gardens</p>
+          <%=link_to 'Home Page', root_path, class: 'btn btn-outline-success' %>
+        <% else%>
+          <%= link_to 'Back', gardens_path, class: "btn btn-outline-success" %>
+        <% end %>
+      </div>
+     </div>
     </div>
   </div>
-  <%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-outline-success" %>
-</div>
 
-<div class = "container mt-4">
-  <h1>My Gardens</h1>
-<% @gardens.each do |garden| %>
-  <%= render "gardens/garden", garden: garden %>
-
-  <%= link_to 'Edit', edit_garden_path(garden), class: "btn btn-outline-success" %>
-  <%= link_to 'Delete', garden_path(garden), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-success"  %>
-<%end%>
-<div>
-<% if @gardens.nil?%>
-<p>You have no gardens</p>
-<%=link_to 'Home Page', root_path, class: 'btn btn-outline-success' %>
-<% else%>
-<%= link_to 'Back', gardens_path, class: "btn btn-outline-success" %>
-<% end %>
-</div>
-</div>
 </div>
