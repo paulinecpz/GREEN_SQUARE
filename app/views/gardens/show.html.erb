@@ -13,6 +13,9 @@
         <p><%= @garden.description %></p>
         <% if current_user.nil? || @garden.user_id != current_user.id  %>
         <%=link_to 'Rent this Garden', new_garden_booking_path(@garden), class: 'link-green' %>
+
+        <%=link_to 'Write a review', new_garden_review_path(@garden), class: 'link-green' %>
+
         <% elsif @garden.user_id == current_user.id %>
         <%= link_to 'Edit', edit_garden_path(@garden), class: 'link-green' %>
         <%= link_to 'Destroy', @garden, method: :delete, data: { confirm: 'Are you sure?' }, class: 'link-green' %>
@@ -25,5 +28,12 @@
       <%=cl_image_tag(@garden.user.avatar, class: "card-trip-user avatar-bordered")%>
     <% end %>          </div>
   </div>
+  <div class="card-trip">
+
+  <% @garden.reviews.each do |review| %>
+    <%= render "reviews/show", review: review %>
+    <% end %>
+  </div>
   <%= link_to 'Back', gardens_path, class: "btn btn-outline-success" %>
+
 </div>
