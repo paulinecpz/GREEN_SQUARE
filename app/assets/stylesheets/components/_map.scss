@@ -1,16 +1,58 @@
-.mapboxgl-popup {
-  max-width: 200px;
-}
+// .mapboxgl-popup {
+//   max-width: 200px;
+// }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
 
+// #map {
+//   height: 100vh;
+//   position: sticky;
+//   top: 70px;
+//   z-index: 3;
+// }
+
+
+
 #map {
   height: 100vh;
+  width: 50vh;
   position: sticky;
-  top: 70px;
-  z-index: 3;
+  // top: 70px;
+  top: 0;
 }
 
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  #map {
+    display: none;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  #map {
+    display: block;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  #map {
+    display: block;
+  }
+}
