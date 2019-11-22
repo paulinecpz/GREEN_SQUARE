@@ -23,8 +23,8 @@
 
       <div class="card-trip" id="index-card">
 
-        <% if garden.photo.nil? %>
-        <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
+        <% if garden.photo.blank? %>
+        <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=950&q=80" />
         <% else %><%= cl_image_tag garden.photo %>
         <% end %>
         <div class="card-trip-infos">
