@@ -1,2 +1,21 @@
-<h2><%= garden.name %></h2>
-<p><%= garden.address %></p>
+<!-- <h2><%= link_to garden.name.capitalize, garden_path(garden), class: 'link-green' %></h2>
+<p><%= garden.address %></p> -->
+
+<div >
+
+	<div>
+	  <% if garden.photo.nil? %>
+	  <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"/>
+	  <% else %><%= cl_image_tag garden.photo %>
+	  <% end %>
+	</div>
+
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= link_to garden.name.capitalize, garden_path(garden), class: 'link-green' %></h2>
+      <p><%= garden.address %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= garden.price_per_day %>€</h2>
+  </div>
+
+</div>

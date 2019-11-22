@@ -2,16 +2,73 @@
 //   display: flex;
 // }
 
-// .container{
-//   z-index: -1;
+.content {
+  display: flex;
+}
+
+.cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+
+
+// .card-trip {
+//   background-size: cover;
+//   background-position: center;
+//   height: 150px;
+//   border-radius: 1px;
+//   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around;
+//   font-size: 22px;
+//   color: white;
+//   font-weight: bolder;
+//   text-shadow: 0 0 10px rgba(0,0,0,0.7);
 // }
- .card-trip {
+
+#index-card {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
   position: relative;
   z-index: 1;
+  height: 200px;
+  width: 70vh;
+  justify-content: space-around;
 
+}
+
+#index-card > img {
+  height: 130px;
+  width: 100%;
+  object-fit: cover;
+}
+
+#show-card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+  height: 600px;
+  justify-content: space-around;
+}
+
+
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+  height: 400px;
+  justify-content: space-around;
 }
 
 .card-trip > img {
@@ -57,11 +114,20 @@
 .link-green:hover {
   color: black;
   text-decoration: none;
-
 }
+
+
+// img {
+//   max-width: 100%;
+//   max-height: 100%;
+//   object-fit: cover;
+// //   width: 100%;
+// //   height: 100%
+// }
 
 .card-trip-user.avatar-bordered img {
   width: 100%;
-  height: 100%
-
+  height: 100%;
 }
+
+
