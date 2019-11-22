@@ -2,8 +2,7 @@
 
 <div class="sidenav">
   <h3>Rental</h3>
-    <h3>from 99€</h3>
-    <h6>per day</h6>
+    <p><%= @garden.price_per_day %>€ per day</p>
     <hr>
   <%= simple_form_for [@garden, @booking] do |f| %>
     <h1 href="#">Checkin:</h1><br>
@@ -13,10 +12,43 @@
   <% end %>
 </div>
 
+
+<!-- <div class="card-trip" id="show-card">
+  <% if @garden.photo_url.blank? %>
+    <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
+  <% else %>
+  <%= cl_image_tag garden.photo %>
+  <% end %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @garden.name.capitalize%></h2>
+        <p><%= @garden.address %></p>
+        <p><%= @garden.price_per_day %>€ per day</p>
+        <p><%= @garden.description %></p>
+</div>
+</div>
+</div> -->
+
+
+
+
+
+
 <div class="main">
   <h2>The Garden</h2>
-    <img src="https://d3atagt0rnqk7k.cloudfront.net/wp-content/uploads/2017/10/18132546/how-to-support-your-cannabis-garden-with-trellising.jpg" style="width:500px;height:400px;"><br>
-  <div class="w3-container">
+  <div class="card-trip" id="booking-card">
+  <% if @garden.photo_url.blank? %>
+    <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
+  <% else %>
+  <%= cl_image_tag garden.photo %>
+  <% end %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @garden.name.capitalize%></h2>
+        <p><%= @garden.address %></p>
+        <p><%= @garden.price_per_day %>€ per day</p>
+        <br>
+        <div class="w3-container">
     <h4><strong>The space</strong></h4>
     <div class="w3-row w3-large">
       <div class="w3-col s6">
@@ -29,7 +61,7 @@
           <hr>
         </div>
     <h4><strong>Description</strong></h4>
-    <p>Our garden is really clean and we like to keep it that way. You can only grow cannabis on this garden, if you try something else you will be expeled sooner.</p>
+    <p><%= @garden.description %></p>
     <p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
     <hr>
     <div class="w3-container" id="contact">
@@ -48,6 +80,10 @@
   <h4><strong>Extra Info</strong></h4>
     <p>Our apartment is really clean and we like to keep it that way. Enjoy the lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
+</div>
+</div>
+</div>
+
 
 
 <!-- <div class="container">

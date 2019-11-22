@@ -1,13 +1,25 @@
 .sidenav {
-  height: auto; /* Full-height: remove this if you want "auto" height */
-  width: 250px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 0; /* Stay on top */
-  top: 20; /* Stay at the top */
-  left: 1;
-  background-color: #eee; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 100px;
+  left: 20px;
+  overflow-x: hidden;
+  padding: 8px 0;
+  align-items: center;
+  // overflow: hidden;
+  background: white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  // position: relative;
+  z-index: 1;
+  height: 400px;
+  justify-content: space-around;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .main {
@@ -15,10 +27,19 @@
   padding: 0px 10px;
 }
 
-.sidenav h1 {
+.sidenav h1, h3 {
   padding: 6px 8px 6px 16px;
-  text-decoration: none;
   font-size: 25px;
   color: #818181;
   display: block;
+  color: black;
+}
+
+.main img{
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+#booking-card {
+  background-color: white;
+  height: 100vh
 }
