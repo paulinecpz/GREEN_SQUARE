@@ -1,9 +1,9 @@
-<div
+<!-- <div
     id="map"
     style="width: 100%;
     height: 300px;"
     data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['pk.eyJ1IjoicGF1bGluZWNweiIsImEiOiJjazM5NDR5bHMwMzJpM25rbWVmZTQ5cnp0In0.uK1-E7G8WKgsx0XA8g3rRw'] %>"></div>
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div> -->
 
 <!-- Carousel -->
 <div class="bd-example">
@@ -24,7 +24,7 @@
             class: "form-control",
             placeholder: "Find a garden"
             %>
-            <%= submit_tag "Search", class: "btn btn-success" %>
+            <%= submit_tag "Search", class: "btn btn-success", id: "search-bar" %>
             <% end %>
           </div>
           <br>
