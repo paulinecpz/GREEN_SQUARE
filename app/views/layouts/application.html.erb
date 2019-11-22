@@ -7,21 +7,14 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' />
-
     <%= stylesheet_pack_tag 'application', media: 'all' %>
-
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' />
-
-
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
   </head>
   <body>
     <%= notice %>
-
     <%= alert %>
     <!-- navbar -->
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
@@ -33,7 +26,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
           <li class="nav-item">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
@@ -46,7 +38,6 @@
             <%=link_to 'Log in', user_session_path, class: 'nav-link' %>
           </li>
           <% else%>
-
           <li class="nav-item dropdown">
             <% if current_user.avatar.blank? %>
             <%= image_tag "https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg", class: "card-trip-user avatar-bordered", d: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -81,5 +72,3 @@
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
-
-
