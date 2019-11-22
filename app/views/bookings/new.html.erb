@@ -2,7 +2,7 @@
 
 <div class="sidenav">
   <h3>Rental</h3>
-    <p><%= @garden.price_per_day %>€ per day</p>
+    <h2><%= @garden.price_per_day %>€ per day</h2 >
     <hr>
   <%= simple_form_for [@garden, @booking] do |f| %>
     <h1 href="#">Checkin:</h1><br>
@@ -35,7 +35,8 @@
 
 
 <div class="main">
-  <h2>The Garden</h2>
+  <br>
+  <h2><%= @garden.name.capitalize%></h2>
   <div class="card-trip" id="booking-card">
   <% if @garden.photo_url.blank? %>
     <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
@@ -44,7 +45,6 @@
   <% end %>
     <div class="card-trip-infos">
       <div>
-        <h2><%= @garden.name.capitalize%></h2>
         <p><%= @garden.address %></p>
         <p><%= @garden.price_per_day %>€ per day</p>
         <br>
@@ -78,7 +78,7 @@
     </form><br>
   </div>
   <h4><strong>Extra Info</strong></h4>
-    <p>Our apartment is really clean and we like to keep it that way. Enjoy the lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Our garden is really clean and we like to keep it that way. Enjoy the lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 </div>
 </div>
