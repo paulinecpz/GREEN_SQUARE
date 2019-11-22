@@ -1,0 +1,15 @@
+<div class="container w-50">
+
+<h1>Write a Review</h1>
+
+<%= simple_form_for [@garden, @review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.submit "add a review", class: "btn btn-success" %>
+<% end %>
+
+<%= link_to 'Back', gardens_path, class: "btn btn-outline-success" %>
+</div>
+
+
+
