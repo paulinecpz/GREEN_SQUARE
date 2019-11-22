@@ -1,3 +1,79 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+<br>
+ <h2><%= @garden.name.capitalize%></h2>
+  <div class="card-trip" id="show-card">
+  <% if @garden.photo_url.blank? %>
+    <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
+  <% else %>
+  <%= cl_image_tag garden.photo %>
+  <% end %>
+    <div class="card-trip-infos">
+      <div>
+        <p><%= @garden.address %></p>
+        <p><%= @garden.price_per_day %>€ per day</p>
+        <br>
+        <div class="w3-container">
+    <h4><strong>The space</strong></h4>
+    <div class="w3-row w3-large">
+      <div class="w3-col s6">
+        <p><i class="material-icons">border_style</i> M² :  30</p>
+        <p><i class="material-icons">brightness_low</i> Sun : Good sun exposure</p>
+        <p><i class="material-icons">terrain</i> Terrain : Soft and low stone terrain</p>
+        </div>
+      </div>
+        <div>
+          <hr>
+        </div>
+    <h4><strong>Description</strong></h4>
+    <p><%= @garden.description %></p>
+    <p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
+    <hr>
+    <div class="w3-container" id="contact">
+    <h2>Contact</h2>
+    <i class="fa fa-map-marker" style="width:30px"></i> Mirandela, PT<br>
+    <i class="fa fa-phone" style="width:30px"></i> Phone: +351 914445551<br>
+    <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+    <p>Questions? Go ahead, ask them:</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+    <button type="submit" class="w3-button w3-blue w3-third">Send a Message</button>
+    </form><br>
+  </div>
+  <h4><strong>Extra Info</strong></h4>
+    <p>Our garden is really clean and we like to keep it that way. Enjoy the lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+          <% if current_user.nil? || @garden.user_id != current_user.id  %>
+          <%=link_to 'Rent this Garden', new_garden_booking_path(@garden), class: 'btn btn-outline-success' %>
+
+          <%=link_to 'Write a review', new_garden_review_path(@garden), class: 'btn btn-outline-success' %>
+          <%= link_to 'Back to all gardens', gardens_path, class: "btn btn-outline-success" %>
+
+          <% elsif @garden.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_garden_path(@garden), class: 'link-green' %>
+          <%= link_to 'Delete', @garden, method: :delete, data: { confirm: 'Are you sure?' }, class: 'link-green' %>
+          <% end %>
+        </div>
+        <h2 class="card-trip-pricing"><%= @garden.price_per_day %>€ per day</h2>
+      <% if @garden.user.avatar_url.blank? %>
+        <%= image_tag "https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg", class: "card-trip-user avatar-bordered" %>
+      <% else %>
+        <%= cl_image_tag(@garden.user.avatar, class: "card-trip-user avatar-bordered")%>
+      <% end %>
+      </div>
+      <% @garden.reviews.each do |review| %>
+        <%= render "reviews/show", review: review %>
+        <% end %>
+    </div>
+</div>
+</div>
+
+
+
+
+<!-- 
 <div class="card-trip" id="show-card">
   <% if @garden.photo_url.blank? %>
     <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
@@ -34,3 +110,4 @@
   </div>
 
 </div>
+ -->
