@@ -20,9 +20,14 @@ class BookingsController < ApplicationController
     # fazer parse da string de forma a ter as duas datas em objectos separados
     # assing as start_date and and_date do booking
     @garden = Garden.find(params[:garden_id])
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
     @booking.user = current_user
     @booking.garden = @garden
+
+    dates = params[:dates_range].split(' - ')
+    @booking.start_date = Date.strptime(dates.first, '%m/%d/%Y')
+    @booking.end_date = Date.strptime(dates.last, '%m/%d/%Y')
+
     authorize @booking
     if @booking.save
       redirect_to garden_booking_path(@garden, @booking), notice: 'Booking successfully created'
@@ -34,6 +39,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :start_date, :end_date, :user_id, :garden_id)
+
+    params.require(:booking).permit(:date, :user_id, :garden_id)
   end
 end
