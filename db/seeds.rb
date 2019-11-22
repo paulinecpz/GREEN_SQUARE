@@ -10,9 +10,9 @@ require 'faker'
 puts("deleting gardens")
 
 
+Booking.destroy_all
 Review.destroy_all
 Garden.destroy_all
-Booking.destroy_all
 User.destroy_all
 
 User.create(name: "Paulo", email:"paulo@paulo.com", password:"password", admin: true)
