@@ -6,15 +6,10 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox.js';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initAutocomplete } from '../plugins/init_autocomplete.js';
+// import { initDatepicker } from '../plugins/datepicker';
 
 initMapbox();
 initAutocomplete();
+// initDatepicker();
 
-import { initDatepicker } from '../plugins/datepicker';
-import "../plugins/flatpickr"
-
-initDatepicker();
-
-
-import "../plugins/flatpickr"
 

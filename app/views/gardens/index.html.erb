@@ -1,14 +1,9 @@
-    <div
-    id="map"
-    style="width: 100%;
-    height: 300px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<!-- Gardens cards -->
-<div class="container w-50 mt-3">
+<div class="m-3">
 
-  <!-- Search -->
+<!-- Search -->
+  <br>
+  <div>
   <%= form_tag gardens_path, method: :get do %>
   <%= text_field_tag :query,
   params[:query],
@@ -17,26 +12,42 @@
   %>
   <%= submit_tag "Search", class: "btn btn-success" %>
   <% end %>
-  <br>
-  <% @gardens.each do |garden| %>
-  <div class="card-trip">
-    <% if garden.photo.nil? %>
-    <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
-    <% else %><%= cl_image_tag garden.photo %>
-    <% end %>
-    <div class="card-trip-infos">
-      <div>
-        <h2><%= link_to garden.name.capitalize, garden_path(garden), class: 'link-green' %></h2>
-        <p><%= garden.address %></p>
-      </div>
-      <h2 class="card-trip-pricing"><%= garden.price_per_day %>€ per day</h2>
-      <% if garden.user.avatar.nil? %>
-      <%= image_tag "https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg", class: "card-trip-user avatar-bordered" %>
-      <% else %>
-      <%=cl_image_tag(garden.user.avatar, class: "card-trip-user avatar-bordered")%>
-      <% end %><!--       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
-    </div>
   </div>
-  <br>
-  <% end %>
+
+<!-- Gmap -->
+<div class="content">
+
+  <div class="cards">
+
+      <% @gardens.each do |garden| %>
+
+      <div class="card-trip" id="index-card">
+
+        <% if garden.photo.nil? %>
+        <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
+        <% else %><%= cl_image_tag garden.photo %>
+        <% end %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= link_to garden.name.capitalize, garden_path(garden), class: 'link-green' %></h2>
+            <p><%= garden.address %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= garden.price_per_day %>€ per day</h2>
+          <% if garden.user.avatar.nil? %>
+          <%= image_tag "https://www.biography.com/.image/t_share/MTY3MDUxMjkzMjI1OTIwMTcz/brad-pitt-attends-the-premiere-of-20th-century-foxs--square.jpg", class: "card-trip-user avatar-bordered" %>
+          <% else %>
+          <%=cl_image_tag(garden.user.avatar, class: "card-trip-user avatar-bordered")%>
+          <% end %><!--       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
+        </div>
+      </div>
+      <% end %>
+
+  </div>
+
+        <div 
+        id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+  </div>
 </div>
