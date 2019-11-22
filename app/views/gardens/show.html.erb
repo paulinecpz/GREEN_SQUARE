@@ -11,13 +11,14 @@
         <p><%= @garden.price_per_day %>€ per day</p>
         <p><%= @garden.description %></p>
         <% if current_user.nil? || @garden.user_id != current_user.id  %>
-        <%=link_to 'Rent this Garden', new_garden_booking_path(@garden), class: 'link-green' %>
+        <%=link_to 'Rent this Garden', new_garden_booking_path(@garden), class: 'btn btn-outline-success' %>
 
-        <%=link_to 'Write a review', new_garden_review_path(@garden), class: 'link-green' %>
+        <%=link_to 'Write a review', new_garden_review_path(@garden), class: 'btn btn-outline-success' %>
+        <%= link_to 'Back to all gardens', gardens_path, class: "btn btn-outline-success" %>
 
         <% elsif @garden.user_id == current_user.id %>
         <%= link_to 'Edit', edit_garden_path(@garden), class: 'link-green' %>
-        <%= link_to 'Destroy', @garden, method: :delete, data: { confirm: 'Are you sure?' }, class: 'link-green' %>
+        <%= link_to 'Delete', @garden, method: :delete, data: { confirm: 'Are you sure?' }, class: 'link-green' %>
         <% end %>
       </div>
       <h2 class="card-trip-pricing"><%= @garden.price_per_day %>€ per day</h2>
@@ -31,6 +32,5 @@
       <%= render "reviews/show", review: review %>
       <% end %>
   </div>
-  <%= link_to 'Back', gardens_path, class: "btn btn-outline-success" %>
 
 </div>
