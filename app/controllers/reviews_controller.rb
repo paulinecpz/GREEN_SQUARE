@@ -1,16 +1,19 @@
 class ReviewsController < ApplicationController
   def new
-    @garden = Garden.find(params[:garden_id])
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
 
-    @garden = Garden.find(params[:garden_id])
-    @review.garden = @garden
-    @review.save
-    redirect_to garden_path(@garden)
+    @booking = Booking.find(params[:booking_id])
+    @review.booking = @booking
+    if @review.save
+      redirect_to garden_path(@garden)
+    else
+      render 'user/gardens/index'
+    end
   end
 
   private
